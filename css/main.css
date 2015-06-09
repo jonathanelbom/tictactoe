@@ -1,0 +1,173 @@
+/* line 22, ../sass/main.scss */
+.float-right {
+  float: right;
+}
+
+/* line 23, ../sass/main.scss */
+.float-left {
+  float: left;
+}
+
+/* line 24, ../sass/main.scss */
+.container-fluid {
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+}
+
+/* line 32, ../sass/main.scss */
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 38, ../sass/main.scss */
+body {
+  background-color: #f6f6f6;
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  min-width: 700px;
+}
+
+/* line 43, ../sass/main.scss */
+header {
+  width: 100%;
+}
+
+/* line 44, ../sass/main.scss */
+h1 {
+  font-size: 32px;
+  color: #2b2c30;
+}
+
+/* line 48, ../sass/main.scss */
+h2 {
+  font-size: 24px;
+  color: #6a6c6c;
+}
+
+/* line 52, ../sass/main.scss */
+p {
+  font-size: 14px;
+  color: #595f66;
+}
+/* line 55, ../sass/main.scss */
+p:first-of-type {
+  margin-top: 20px;
+}
+
+/* line 59, ../sass/main.scss */
+nav {
+  padding: 0;
+}
+/* line 61, ../sass/main.scss */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 66, ../sass/main.scss */
+nav a {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 12px 12px 12px 0;
+  text-decoration: none;
+}
+/* line 72, ../sass/main.scss */
+nav a:hover {
+  text-decoration: none;
+}
+/* line 76, ../sass/main.scss */
+nav#primary {
+  background-color: #2b2e30;
+}
+/* line 78, ../sass/main.scss */
+nav#primary a {
+  cursor: default;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* line 85, ../sass/main.scss */
+nav#secondary {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+}
+/* line 88, ../sass/main.scss */
+nav#secondary a {
+  padding-bottom: 9px;
+  font-size: 13px;
+  color: #7f7f84;
+  text-transform: uppercase;
+  padding-right: 22px;
+  border-bottom: 3px solid #fff;
+}
+/* line 95, ../sass/main.scss */
+nav#secondary a:hover {
+  border-bottom: 3px solid #2d80fb;
+}
+
+/* line 101, ../sass/main.scss */
+section {
+  box-sizing: border-box;
+}
+
+/* line 104, ../sass/main.scss */
+section#instructions {
+  max-width: calc( 100% - 150px * 3 - 40px * 2 );
+  float: left;
+}
+/* line 107, ../sass/main.scss */
+section#instructions h1 {
+  text-transform: uppercase;
+}
+
+/* line 111, ../sass/main.scss */
+section#game {
+  float: right;
+  margin-top: 40px;
+  width: calc( 150px * 3 + 5px * 2 );
+}
+/* line 115, ../sass/main.scss */
+section#game #status {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+/* line 118, ../sass/main.scss */
+section#game #status i:first-of-type {
+  margin-right: 8px;
+}
+/* line 121, ../sass/main.scss */
+section#game #status.playing {
+  background-color: #BEDAFD;
+  color: #2b2c30;
+}
+/* line 124, ../sass/main.scss */
+section#game #status.playing i {
+  font-size: 18px;
+  color: #2d80fb;
+}
+/* line 133, ../sass/main.scss */
+section#game #grid {
+  line-height: 0px;
+}
+/* line 135, ../sass/main.scss */
+section#game #grid div[class^="cell-"] {
+  display: inline-block;
+  background-color: #fff;
+  height: 150px;
+  width: 150px;
+  border: 1px solid #d9d9d9;
+  margin: 0 5px 5px 0;
+}
+/* line 142, ../sass/main.scss */
+section#game #grid div[class^="cell-"]:nth-child(3n) {
+  margin-right: 0px;
+}
+/* line 145, ../sass/main.scss */
+section#game #grid div[class^="cell-"]:hover {
+  background-color: transparent;
+}
