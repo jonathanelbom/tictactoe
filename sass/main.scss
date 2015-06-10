@@ -1,12 +1,18 @@
-$header-padding: 12px;
-$padding: 30px;
 $blue: #2d80fb;
+$blue-light: #4292fc;
+$blue-dark:#156ced;
+$blue-darkest:#1369ea;
+$green-dark: #7dc52e;
 $text-dark: #2b2c30;
 $text-med: #595f66;
 $text-light: #6a6c6c;
+
+$status-content-height: 24px;
 $gutter: 40px;
 $cell: 150px;
 $cell-gutter: 5px;
+$header-padding: 15px;
+$padding: 30px;
 
 @mixin font-family($nueue) {
 	@if $nueue == true {
@@ -19,8 +25,30 @@ $cell-gutter: 5px;
 	-webkit-box-shadow: $ds;
 	box-shadow: $ds;
 }
-.float-right { float:right; }
-.float-left { float:left; }
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin user-select($select) {
+	-webkit-user-select: $select;
+	-moz-user-select: $select;
+	-ms-user-select: $select;
+	user-select: $select;
+}
+@mixin calc($property, $expression) { 
+  #{$property}: -webkit-calc(#{$expression}); 
+  #{$property}: calc(#{$expression}); 
+} 
+@mixin gradient($color-top, $color-bottom) {
+	background: $color-top;
+	background: -moz-linear-gradient(top,  $color-top 0%, $color-bottom 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color-top), color-stop(100%,$color-bottom));
+	background: -webkit-linear-gradient(top,  $color-top 0%,$color-bottom 100%);
+	background: -o-linear-gradient(top,  $color-top 0%,$color-bottom 100%);
+	background: -ms-linear-gradient(top,  $color-top 0%,$color-bottom 100%);
+	background: linear-gradient(to bottom,  $color-top 0%,$color-bottom 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top', endColorstr='$color-bottom',GradientType=0 );
+}
 .container-fluid {
   padding-right: $padding;
   padding-left: $padding;
@@ -44,10 +72,12 @@ header { width: 100%; }
 h1 {
 	font-size: 32px;
 	color: $text-dark;
+	font-weight: normal;
 }
 h2 {
 	font-size: 24px;
 	color: $text-light;
+	font-weight: normal;
 }
 p {
 	font-size: 14px;
@@ -67,7 +97,6 @@ nav {
 		box-sizing: border-box;
 		display: inline-block;
 		padding: $header-padding $header-padding $header-padding 0;
-
 		text-decoration: none;
 		&:hover {
 			text-decoration: none;
@@ -100,52 +129,141 @@ nav {
 }
 section {
 	box-sizing: border-box;
-}
-section#instructions {
-	max-width: calc( 100% - #{$cell} * 3 - #{$gutter} * 2 );
-	float:left;
-	h1 {
-		text-transform: uppercase;
+	&#instructions {
+		@include calc( max-width, '100% - #{$cell} * 3 - #{$gutter} * 2' );
+		float:left;
+		h1 {
+			text-transform: uppercase;
+		}
+		p {
+			line-height: 24px;
+		}
+	}
+	&#game {
+		float:right;
+		margin: 60px 0 40px 0;
+		text-align: center;
+		@include calc( width, '#{$cell} * 3 + #{$cell-gutter} * 2' );
 	}
 }
-section#game {
-	float:right;
-	margin-top: 40px;
-	width: calc( #{$cell} * 3 + #{$cell-gutter} * 2 );
-	#status {
-		padding: 15px;
-		margin-bottom: 20px;
-		i:first-of-type {
-			margin-right: 8px;
-		}
-		&.playing {
-			background-color: #BEDAFD;
-			color: $text-dark;
-			i {
-				font-size: 18px;
-				color: $blue;
-			}
-		}
-		&.ended {
-
+#status {
+	margin-bottom: 20px;
+	text-align: left;
+	.status-message {
+		padding: 10px 15px;
+		line-height: $status-content-height;
+		vertical-align: middle;
+		i {
+			line-height: $status-content-height;
 		}
 	}
-	#grid {
-		line-height: 0px;
-		div[class^="cell-"] {
-			display:inline-block;
-			background-color: #fff;
-			height: $cell;
-			width: $cell;
-			border: 1px solid #d9d9d9;
-			margin: 0 $cell-gutter $cell-gutter 0;
-			&:nth-child(3n) {
-				margin-right: 0px;
-			}
-			&:hover {
-				background-color: transparent;
-			}
-
+	.icon {
+		float: left;
+		margin-right: 10px;
+		width: $status-content-height;
+		height: $status-content-height;
+		@include border-radius(20px);
+		color: #fff;
+		font-weight: bold;
+		font-style: italic;
+		font-family: serif;
+		text-align: center;
+		font-size: 16px;
+	}
+	.close {
+		float:right
+	}
+	.playing {
+		display: none;
+		background-color: #BEDAFD;
+		color: $text-dark;
+		i {
+			font-size: 18px;
+			color: $blue;
+		}
+		.icon {
+			background-color: $blue;
 		}
 	}
+	.ended {
+		background-color: #CCEAA4;
+		color: $text-dark;
+		i {
+			font-size: 18px;
+			color: $green-dark;
+			&.fa-check {
+				color: #fff;
+				font-size: 15px;
+			}
+		}
+		.icon {
+			background-color: $green-dark;
+		}
+	}
+}
+#grid {
+	line-height: 0px;
+	margin-bottom: 15px;
+	&:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+	}
+	div[class^="cell-"] {
+		display:inline-block;
+		float:left;
+		background-color: #fff;
+		height: $cell;
+		width: $cell;
+		border: 1px solid #d9d9d9;
+		margin: 0 $cell-gutter $cell-gutter 0;
+		cursor: pointer;
+		&:nth-child(3n) {
+			margin-right: 0px;
+		}
+		&:hover:not(.filled) {
+			background-color: transparent;
+		}
+		&.filled {
+			text-transform: uppercase;
+			cursor: default;
+			font-size: 96px;
+			text-align: center;
+			line-height: $cell;
+			vertical-align: middle;
+			&.x {
+				color:#7fcc19;
+			}
+			&.o {
+				color:#f83313;	
+			}
+		}
+	}
+}
+.btn {
+	display: inline-block;
+	padding: 5px 15px;
+	min-width: 75px;
+	margin-bottom: 0;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	color: #fff;
+	outline: none;
+	@include user-select(none);
+	@include border-radius(4px);
+	@include gradient($blue-light, $blue);
+  	border: 1px solid transparent;
+  	border-color: rgba(0, 0, 0, .2) rgba(0, 0, 0, .05);
+  	&:hover, &:focus {
+  		@include gradient($blue, $blue-dark);
+  	}
+  	&:active {
+  		@include gradient($blue-darkest, $blue-darkest);
+  		@include box-shadow( inset 1px 1px 2px rgba(0, 0, 0, .25) );	
+  	}
 }

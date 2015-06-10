@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="vendor/bootstrap-3.3.4/css/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="vendor/bootstrap-3.3.4/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="vendor/font-awesome-4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/main.css">
     </head>
@@ -36,12 +36,18 @@
 				<p><strong>Tic-tac-toe</strong> (or <strong>Noughts and crosses</strong>, <strong>Xs and Os</strong>) is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3x3 grid. The player who succeeds in placing three respective marks in a horizontal, vertical, or diagonal row wins the game.</p>
 			</section>
 			<section id="game">
-				<hgroup id="status" class="playing">
-					<i class="fa fa-info-circle float-left"></i>Cat's game<i class="fa fa-times float-right"></i>
+				<hgroup id="status">
+					<div class="status-message playing">
+						<div class="icon float-left">i</div>Cat's game<i class="fa fa-times close"></i>
+					</div>
+					<div class="status-message ended">
+						<div class="icon"><i class="fa fa-check"></i></div>X won!<i class="fa fa-times close"></i>
+					</div>
 				</hgroup>
 				<section id="grid">
 					<div class="cell-1"></div><div class="cell-2"></div><div class="cell-3"></div><div class="cell-4"></div><div class="cell-5"></div><div class="cell-6"></div><div class="cell-7"></div><div class="cell-8"></div><div class="cell-9"></div>
 				</section>
+				<button class="btn">Reset</button>
 			</section>
 		</main>
 

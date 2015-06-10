@@ -1,14 +1,4 @@
-/* line 22, ../sass/main.scss */
-.float-right {
-  float: right;
-}
-
-/* line 23, ../sass/main.scss */
-.float-left {
-  float: left;
-}
-
-/* line 24, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .container-fluid {
   padding-right: 30px;
   padding-left: 30px;
@@ -17,157 +7,298 @@
   max-width: 960px;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 38, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 body {
   background-color: #f6f6f6;
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
   min-width: 700px;
 }
 
-/* line 43, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 header {
   width: 100%;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 h1 {
   font-size: 32px;
   color: #2b2c30;
+  font-weight: normal;
 }
 
-/* line 48, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 h2 {
   font-size: 24px;
   color: #6a6c6c;
+  font-weight: normal;
 }
 
-/* line 52, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 p {
   font-size: 14px;
   color: #595f66;
 }
-/* line 55, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 p:first-of-type {
   margin-top: 20px;
 }
 
-/* line 59, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 nav {
   padding: 0;
 }
-/* line 61, ../sass/main.scss */
+/* line 91, ../sass/main.scss */
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-/* line 66, ../sass/main.scss */
+/* line 96, ../sass/main.scss */
 nav a {
   box-sizing: border-box;
   display: inline-block;
-  padding: 12px 12px 12px 0;
+  padding: 15px 15px 15px 0;
   text-decoration: none;
 }
-/* line 72, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 nav a:hover {
   text-decoration: none;
 }
-/* line 76, ../sass/main.scss */
+/* line 105, ../sass/main.scss */
 nav#primary {
   background-color: #2b2e30;
 }
-/* line 78, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
 nav#primary a {
   cursor: default;
   color: #fff;
   font-size: 14px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-/* line 85, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 nav#secondary {
   background-color: #ffffff;
   -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 88, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 nav#secondary a {
-  padding-bottom: 9px;
+  padding-bottom: 12px;
   font-size: 13px;
   color: #7f7f84;
   text-transform: uppercase;
   padding-right: 22px;
   border-bottom: 3px solid #fff;
 }
-/* line 95, ../sass/main.scss */
+/* line 124, ../sass/main.scss */
 nav#secondary a:hover {
   border-bottom: 3px solid #2d80fb;
 }
 
-/* line 101, ../sass/main.scss */
+/* line 130, ../sass/main.scss */
 section {
   box-sizing: border-box;
 }
-
-/* line 104, ../sass/main.scss */
+/* line 132, ../sass/main.scss */
 section#instructions {
-  max-width: calc( 100% - 150px * 3 - 40px * 2 );
+  max-width: -webkit-calc(100% - 150px * 3 - 40px * 2);
+  max-width: calc(100% - 150px * 3 - 40px * 2);
   float: left;
 }
-/* line 107, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 section#instructions h1 {
   text-transform: uppercase;
 }
-
-/* line 111, ../sass/main.scss */
+/* line 138, ../sass/main.scss */
+section#instructions p {
+  line-height: 24px;
+}
+/* line 142, ../sass/main.scss */
 section#game {
   float: right;
-  margin-top: 40px;
-  width: calc( 150px * 3 + 5px * 2 );
+  margin: 60px 0 40px 0;
+  text-align: center;
+  width: -webkit-calc(150px * 3 + 5px * 2);
+  width: calc(150px * 3 + 5px * 2);
 }
-/* line 115, ../sass/main.scss */
-section#game #status {
-  padding: 15px;
+
+/* line 149, ../sass/main.scss */
+#status {
   margin-bottom: 20px;
+  text-align: left;
 }
-/* line 118, ../sass/main.scss */
-section#game #status i:first-of-type {
-  margin-right: 8px;
+/* line 152, ../sass/main.scss */
+#status .status-message {
+  padding: 10px 15px;
+  line-height: 24px;
+  vertical-align: middle;
 }
-/* line 121, ../sass/main.scss */
-section#game #status.playing {
+/* line 156, ../sass/main.scss */
+#status .status-message i {
+  line-height: 24px;
+}
+/* line 160, ../sass/main.scss */
+#status .icon {
+  float: left;
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  font-style: italic;
+  font-family: serif;
+  text-align: center;
+  font-size: 16px;
+}
+/* line 173, ../sass/main.scss */
+#status .close {
+  float: right;
+}
+/* line 176, ../sass/main.scss */
+#status .playing {
+  display: none;
   background-color: #BEDAFD;
   color: #2b2c30;
 }
-/* line 124, ../sass/main.scss */
-section#game #status.playing i {
+/* line 180, ../sass/main.scss */
+#status .playing i {
   font-size: 18px;
   color: #2d80fb;
 }
-/* line 133, ../sass/main.scss */
-section#game #grid {
-  line-height: 0px;
+/* line 184, ../sass/main.scss */
+#status .playing .icon {
+  background-color: #2d80fb;
 }
-/* line 135, ../sass/main.scss */
-section#game #grid div[class^="cell-"] {
+/* line 188, ../sass/main.scss */
+#status .ended {
+  background-color: #CCEAA4;
+  color: #2b2c30;
+}
+/* line 191, ../sass/main.scss */
+#status .ended i {
+  font-size: 18px;
+  color: #7dc52e;
+}
+/* line 194, ../sass/main.scss */
+#status .ended i.fa-check {
+  color: #fff;
+  font-size: 15px;
+}
+/* line 199, ../sass/main.scss */
+#status .ended .icon {
+  background-color: #7dc52e;
+}
+
+/* line 204, ../sass/main.scss */
+#grid {
+  line-height: 0px;
+  margin-bottom: 15px;
+}
+/* line 207, ../sass/main.scss */
+#grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 212, ../sass/main.scss */
+#grid div[class^="cell-"] {
   display: inline-block;
+  float: left;
   background-color: #fff;
   height: 150px;
   width: 150px;
   border: 1px solid #d9d9d9;
   margin: 0 5px 5px 0;
+  cursor: pointer;
 }
-/* line 142, ../sass/main.scss */
-section#game #grid div[class^="cell-"]:nth-child(3n) {
+/* line 221, ../sass/main.scss */
+#grid div[class^="cell-"]:nth-child(3n) {
   margin-right: 0px;
 }
-/* line 145, ../sass/main.scss */
-section#game #grid div[class^="cell-"]:hover {
+/* line 224, ../sass/main.scss */
+#grid div[class^="cell-"]:hover:not(.filled) {
   background-color: transparent;
+}
+/* line 227, ../sass/main.scss */
+#grid div[class^="cell-"].filled {
+  text-transform: uppercase;
+  cursor: default;
+  font-size: 96px;
+  text-align: center;
+  line-height: 150px;
+  vertical-align: middle;
+}
+/* line 234, ../sass/main.scss */
+#grid div[class^="cell-"].filled.x {
+  color: #7fcc19;
+}
+/* line 237, ../sass/main.scss */
+#grid div[class^="cell-"].filled.o {
+  color: #f83313;
+}
+
+/* line 243, ../sass/main.scss */
+.btn {
+  display: inline-block;
+  padding: 5px 15px;
+  min-width: 75px;
+  margin-bottom: 0;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #fff;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #4292fc;
+  background: -moz-linear-gradient(top, #4292fc 0%, #2d80fb 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4292fc), color-stop(100%, #2d80fb));
+  background: -webkit-linear-gradient(top, #4292fc 0%, #2d80fb 100%);
+  background: -o-linear-gradient(top, #4292fc 0%, #2d80fb 100%);
+  background: -ms-linear-gradient(top, #4292fc 0%, #2d80fb 100%);
+  background: linear-gradient(to bottom, #4292fc 0%, #2d80fb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top', endColorstr='$color-bottom',GradientType=0 );
+  border: 1px solid transparent;
+  border-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.05);
+}
+/* line 262, ../sass/main.scss */
+.btn:hover, .btn:focus {
+  background: #2d80fb;
+  background: -moz-linear-gradient(top, #2d80fb 0%, #156ced 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2d80fb), color-stop(100%, #156ced));
+  background: -webkit-linear-gradient(top, #2d80fb 0%, #156ced 100%);
+  background: -o-linear-gradient(top, #2d80fb 0%, #156ced 100%);
+  background: -ms-linear-gradient(top, #2d80fb 0%, #156ced 100%);
+  background: linear-gradient(to bottom, #2d80fb 0%, #156ced 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top', endColorstr='$color-bottom',GradientType=0 );
+}
+/* line 265, ../sass/main.scss */
+.btn:active {
+  background: #1369ea;
+  background: -moz-linear-gradient(top, #1369ea 0%, #1369ea 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1369ea), color-stop(100%, #1369ea));
+  background: -webkit-linear-gradient(top, #1369ea 0%, #1369ea 100%);
+  background: -o-linear-gradient(top, #1369ea 0%, #1369ea 100%);
+  background: -ms-linear-gradient(top, #1369ea 0%, #1369ea 100%);
+  background: linear-gradient(to bottom, #1369ea 0%, #1369ea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top', endColorstr='$color-bottom',GradientType=0 );
+  -webkit-box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
