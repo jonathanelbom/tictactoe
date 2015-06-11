@@ -169,6 +169,7 @@ section {
 #status {
 	margin-bottom: 20px;
 	text-align: left;
+	display:none;
 	>.message {
 		padding: 10px 15px;
 		line-height: $status-content-height;
