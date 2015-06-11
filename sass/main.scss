@@ -16,7 +16,7 @@ $padding: 30px;
 
 @mixin font-family($nueue) {
 	@if $nueue == true {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 	} @else {
 		font-family: Helvetica, Arial, sans-serif;
 	}
@@ -89,11 +89,13 @@ h1 {
 	font-size: 32px;
 	color: $text-dark;
 	font-weight: normal;
+	@include font-family(true);
 }
 h2 {
 	font-size: 24px;
 	color: $text-light;
 	font-weight: normal;
+	@include font-family(true);
 }
 p {
 	font-size: 14px;
