@@ -11,20 +11,19 @@
         <!--<link rel="stylesheet" href="vendor/bootstrap-3.3.4/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="vendor/font-awesome-4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/modernizr.custom.js"></script>
     </head>
     <body>
 		<header>
 			<nav id="primary">
 				<ul class="container-fluid">
-					<li>
-						<a href="">Tic Tac Toe</a>
-					</li>
+					<li>Tic Tac Toe</li>
 				</ul>
 			</nav>
 			<nav id="secondary">
 				<ul class="container-fluid">
 					<li>
-						<a href="">New Game</a>
+						<a href="#">New Game</a>
 					</li>
 				</ul>
 			</nav>
@@ -36,24 +35,23 @@
 				<p><strong>Tic-tac-toe</strong> (or <strong>Noughts and crosses</strong>, <strong>Xs and Os</strong>) is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3x3 grid. The player who succeeds in placing three respective marks in a horizontal, vertical, or diagonal row wins the game.</p>
 			</section>
 			<section id="game">
-				<hgroup id="status">
-					<div class="status-message playing">
+				<header id="status">
+					<div class="message tie">
 						<div class="icon float-left">i</div>Cat's game<i class="fa fa-times close"></i>
 					</div>
-					<div class="status-message ended">
-						<div class="icon"><i class="fa fa-check"></i></div>X won!<i class="fa fa-times close"></i>
+					<div class="message win">
+						<div class="icon"><i class="fa fa-check"></i></div><span>X won!</span><i class="fa fa-times close"></i>
 					</div>
-				</hgroup>
-				<section id="grid">
+				</header>
+				<div id="grid">
 					<div class="cell-1"></div><div class="cell-2"></div><div class="cell-3"></div><div class="cell-4"></div><div class="cell-5"></div><div class="cell-6"></div><div class="cell-7"></div><div class="cell-8"></div><div class="cell-9"></div>
-				</section>
-				<button class="btn">Reset</button>
+				</div>
+				<button class="btn" id="reset">Reset</button>
 			</section>
 		</main>
 
 
-        <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
-        <script src="vendor/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

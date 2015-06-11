@@ -18,7 +18,7 @@ $padding: 30px;
 	@if $nueue == true {
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	} @else {
-		font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-family: Helvetica, Arial, sans-serif;
 	}
 }
 @mixin box-shadow($ds) {
@@ -49,6 +49,22 @@ $padding: 30px;
 	background: linear-gradient(to bottom,  $color-top 0%,$color-bottom 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-top', endColorstr='$color-bottom',GradientType=0 );
 }
+@media (max-width: 700px) {
+	#instructions {
+		max-width: 100% !important;
+		width: 100%;
+		clear: both;
+	}
+	section#game {
+		width: 100%;
+		clear: both;
+		margin-top: 40px;
+	}
+	#grid, #status {
+		@include calc( width, '#{$cell} * 3 + #{$cell-gutter} * 2' );
+		margin: auto;
+	}
+}
 .container-fluid {
   padding-right: $padding;
   padding-left: $padding;
@@ -66,7 +82,7 @@ $padding: 30px;
 body {
 	background-color: #f6f6f6;
 	@include font-family(false);
-	min-width: 700px;
+	//min-width: 700px;
 }
 header { width: 100%; }
 h1 {
@@ -102,59 +118,91 @@ nav {
 			text-decoration: none;
 		}
 	}
-	&#primary {
-		background-color: #2b2e30;
-		a {
-			cursor: default;
-			color: #fff;
-			font-size: 14px;
-			@include font-family(true);
-		}
+}
+#primary {
+	background-color: #2b2e30;
+	li {
+		cursor: default;
+		color: #fff;
+		font-size: 14px;
+		@include font-family(true);
+		@include user-select(none);
+		padding: $header-padding $header-padding $header-padding 0;
 	}
-	&#secondary {
-		background-color: #ffffff;
-		@include box-shadow( 0 1px 5px 0 rgba(0,0,0,0.3) );
-		a {
-			padding-bottom: $header-padding - 3px;
-			font-size: 13px;
-			color: #7f7f84;
-			text-transform: uppercase;
-			padding-right: 22px;
-			border-bottom: 3px solid #fff;
-			&:hover {
-				border-bottom: 3px solid $blue;
-			}
+}
+#secondary {
+	background-color: #ffffff;
+	@include box-shadow( 0 1px 5px 0 rgba(0,0,0,0.3) );
+	a {
+		padding-bottom: $header-padding - 3px;
+		font-size: 13px;
+		color: #7f7f84;
+		text-transform: uppercase;
+		padding-right: 22px;
+		border-bottom: 3px solid #fff;
+		&:hover {
+			border-bottom: 3px solid $blue;
 		}
 	}
 }
 section {
 	box-sizing: border-box;
-	&#instructions {
-		@include calc( max-width, '100% - #{$cell} * 3 - #{$gutter} * 2' );
-		float:left;
-		h1 {
-			text-transform: uppercase;
-		}
-		p {
-			line-height: 24px;
-		}
+}
+#instructions {
+	@include calc( max-width, '100% - #{$cell} * 3 - #{$gutter} * 2' );
+	float:left;
+	h1 {
+		text-transform: uppercase;
 	}
-	&#game {
-		float:right;
-		margin: 60px 0 40px 0;
-		text-align: center;
-		@include calc( width, '#{$cell} * 3 + #{$cell-gutter} * 2' );
+	p {
+		line-height: 24px;
 	}
+}
+#game {
+	float:right;
+	margin: 60px 0 40px 0;
+	text-align: center;
+	@include calc( width, '#{$cell} * 3 + #{$cell-gutter} * 2' );
 }
 #status {
 	margin-bottom: 20px;
 	text-align: left;
-	.status-message {
+	>.message {
 		padding: 10px 15px;
 		line-height: $status-content-height;
 		vertical-align: middle;
+		display: none;
 		i {
 			line-height: $status-content-height;
+			&.close {
+				cursor: pointer;
+			}
+		}
+	}
+	>.tie {
+		background-color: #BEDAFD;
+		color: $text-dark;
+		i {
+			font-size: 18px;
+			color: $blue;
+		}
+		.icon {
+			background-color: $blue;
+		}
+	}
+	>.win {
+		background-color: #CCEAA4;
+		color: $text-dark;
+		i {
+			font-size: 18px;
+			color: $green-dark;
+			&.fa-check {
+				color: #fff;
+				font-size: 15px;
+			}
+		}
+		.icon {
+			background-color: $green-dark;
 		}
 	}
 	.icon {
@@ -173,33 +221,6 @@ section {
 	.close {
 		float:right
 	}
-	.playing {
-		display: none;
-		background-color: #BEDAFD;
-		color: $text-dark;
-		i {
-			font-size: 18px;
-			color: $blue;
-		}
-		.icon {
-			background-color: $blue;
-		}
-	}
-	.ended {
-		background-color: #CCEAA4;
-		color: $text-dark;
-		i {
-			font-size: 18px;
-			color: $green-dark;
-			&.fa-check {
-				color: #fff;
-				font-size: 15px;
-			}
-		}
-		.icon {
-			background-color: $green-dark;
-		}
-	}
 }
 #grid {
 	line-height: 0px;
@@ -209,34 +230,46 @@ section {
 		  display: table;
 		  clear: both;
 	}
-	div[class^="cell-"] {
-		display:inline-block;
-		float:left;
-		background-color: #fff;
-		height: $cell;
-		width: $cell;
-		border: 1px solid #d9d9d9;
-		margin: 0 $cell-gutter $cell-gutter 0;
-		cursor: pointer;
-		&:nth-child(3n) {
-			margin-right: 0px;
+}
+div[class^="cell-"] {
+	display:inline-block;
+	float:left;
+	background-color: #fff;
+	height: $cell;
+	width: $cell;
+	border: 1px solid #d9d9d9;
+	margin: 0 $cell-gutter $cell-gutter 0;
+	cursor: pointer;
+	@include user-select(none);
+	&.not-winner {
+		opacity: 0.6;
+	}
+	&.winner {
+		&.x {
+			border-color:#7fcc19;
 		}
-		&:hover:not(.filled) {
-			background-color: transparent;
+		&.o {
+			border-color:#f83313;	
 		}
-		&.filled {
-			text-transform: uppercase;
-			cursor: default;
-			font-size: 96px;
-			text-align: center;
-			line-height: $cell;
-			vertical-align: middle;
-			&.x {
-				color:#7fcc19;
-			}
-			&.o {
-				color:#f83313;	
-			}
+	}
+	&:nth-child(3n) {
+		margin-right: 0px;
+	}
+	&:hover:not(.filled) {
+		background-color: transparent;
+	}
+	&.filled {
+		text-transform: uppercase;
+		cursor: default;
+		font-size: 96px;
+		text-align: center;
+		line-height: $cell;
+		vertical-align: middle;
+		&.x {
+			color:#7fcc19;
+		}
+		&.o {
+			color:#f83313;	
 		}
 	}
 }
